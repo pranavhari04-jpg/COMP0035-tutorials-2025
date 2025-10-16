@@ -92,7 +92,7 @@ print("-" * 70)
 # Activity 6: Summary statistics
 # ---------------------------------------------------------------------------
 
-# describe() gives numeric stats (mean, std, min, etc.) and categorical stats (count, unique)
+# describe() gives numeric stats (mean, std, min, etc.) and categorical
 print("🔹 Summary statistics for all columns:")
 print(events_df.describe(include="all"))
 print("-" * 70)
@@ -186,7 +186,8 @@ print("-" * 70)
 
 # Attempt to merge events and medals if both have a common column
 if "event" in medals_df.columns and "events" in events_df.columns:
-    merged_df = pd.merge(events_df, medals_df, left_on="events", right_on="event", how="left")
+    merged_df = pd.merge(events_df, medals_df, left_on="events", 
+                         right_on="event", how="left")
     print(f"✅ Merged DataFrame shape: {merged_df.shape}")
 else:
     merged_df = events_df.copy()  # fallback
@@ -229,7 +230,8 @@ print("-" * 70)
 
 # Plot a line of total participants by year if both columns exist
 if {"year", "participants"}.issubset(merged_df.columns):
-    merged_df.plot(x="year", y="participants", kind="line", title="Participants over time")
+    merged_df.plot(x="year", y="participants", kind="line",
+                   title="Participants over time")
     plt.tight_layout()
     plt.show()
     print("✅ Displayed line chart for participants over time.")
@@ -254,4 +256,5 @@ print("-" * 70)
 # ---------------------------------------------------------------------------
 
 print("🎉 All Week 2 Pandas activities completed successfully!")
-print("You have now practiced reading, exploring, cleaning, grouping, merging, plotting, and exporting data.")
+print("You have now practiced reading, exploring, cleaning, grouping, merging," \
+" plotting, and exporting data.")
